@@ -7,8 +7,10 @@ C:\Users\prath\eclipse-workspace\main-framework\src\test\java\listeners\RetryLis
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\listeners\TestListener.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\pages\LoginPage.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\reporting\ExtentManager.java
+C:\Users\prath\eclipse-workspace\main-framework\src\test\java\tests\DBTest.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\tests\LoginTest.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\utils\ConfigReader.java
+C:\Users\prath\eclipse-workspace\main-framework\src\test\java\utils\DBUtils.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\utils\ExcelUtils.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\utils\JsonDataReader.java
 C:\Users\prath\eclipse-workspace\main-framework\src\test\java\utils\ScreenshotUtil.java

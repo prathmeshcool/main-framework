@@ -11,6 +11,7 @@
         <classes>
             <class name="tests.LoginTest"/>
             <class name="api.ApiTests"/>
+            <class name="tests.DBTest"/>
         </classes>
     </test>
 </suite>

@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
 	    return data;
 	}
 
-	@Test(dataProvider = "loginData")
+	@Test(dataProvider = "loginData", groups = {"smoke", "regression"})
 	public void loginTest(String username, String password){
 	    LoginPage login = new LoginPage();
 	    login.goToLoginPage();

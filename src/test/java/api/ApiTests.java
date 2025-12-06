@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class ApiTests {
 
-    @Test
+	@Test(groups = {"smoke", "api"})
     public void getUsersTest() {
 
         Response res = given()
@@ -27,7 +27,7 @@ public class ApiTests {
         Assert.assertNotNull(firstUser);
     }
 
-    @Test
+	@Test(groups = {"regression","api"})
     public void createUserTest() {
 
         String requestBody = """
