@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Main Suite" verbose="1">
+
+<listeners>
+    <listener class-name="listeners.TestListener"/>
+    <listener class-name="listeners.RetryListener"/>
+</listeners>
+
+
+    <test name="UI Tests">
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="api.ApiTests"/>
+        </classes>
+    </test>
+</suite>
