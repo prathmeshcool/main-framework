@@ -9,6 +9,7 @@ import utils.ConfigReader;
 import java.time.Duration;
 
 public class DriverFactory {
+
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver initDriver() {
@@ -18,25 +19,38 @@ public class DriverFactory {
 
         if (browser == null || browser.isEmpty() || browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
+
             ChromeOptions options = new ChromeOptions();
+
+            // Run headless in CI if configured
             if (headless) {
-                options.addArguments("--headless=new"); // newer headless
+                options.addArguments("--headless=new");
                 options.addArguments("--window-size=1920,1080");
             }
-            // some useful args to avoid automation detection issues
+
+            // Stability fixes for CI
             options.addArguments("--disable-gpu");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--remote-allow-origins=*");
 
             driver.set(new ChromeDriver(options));
+
         } else {
-            // Extend here for firefox etc.
+            // TODO: Add Firefox/Edge support later
             WebDriverManager.chromedriver().setup();
             driver.set(new ChromeDriver());
         }
 
-        driver.get().manage().window().maximize();
-        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(implicit));
+        // Maximize only when UI is visible
+        if (!headless) {
+            driver.get().manage().window().maximize();
+        }
+
+        driver.get().manage()
+                .timeouts()
+                .implicitlyWait(Duration.ofSeconds(implicit));
+
         return driver.get();
     }
 
